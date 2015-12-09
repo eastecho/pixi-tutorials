@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pixi.js Tutorial 1 - 1</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/pixi.min.js"></script>
+</head>
+<body>
+<script>
+
+    // Keep the scale mode to nearest
+    PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
+
+    var renderer = PIXI.autoDetectRenderer(800, 450,{backgroundColor : 0x000000});
+    document.body.appendChild(renderer.view);
+
+    // Create stage container
+    var stage = new PIXI.Container();
+
+    // Create background sprite
+    var background = new PIXI.Sprite.fromImage('../assets/img/BackDrop_01.png');
+    background.width = renderer.width;
+    background.height = renderer.height;
+    stage.addChild(background);
+
+    // Create another sprite
+//    var player = new PIXI.Sprite.fromImage('../assets/img/player.png');
+//    player.anchor.set(0.5);
+//    player.position.set(renderer.width / 2, renderer.height / 2 + 136);
+//    player.scale.x = 2;
+//    player.scale.y = 2;
+//    stage.addChild(player);
+
+    // Loop the animation
+    animate();
+    function animate() {
+        requestAnimationFrame(animate);
+
+        // Render stage
+        renderer.render(stage);
+    }
+
+</script>
+
+<p>
+    <a href="../index.html" class="btn">&lt; Go Back</a>
+</p>
+</body>
+</html>
